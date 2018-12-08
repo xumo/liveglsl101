@@ -38,6 +38,6 @@ Los colores tienen cuantro componentes: Rojo, Verde, Azul y Alpha o Transparenci
         Al final de cuentas este simple programa pinta un sólo pixel en pantalla, que es equivalente a asignarle un color. Todos los fragment shaders deben asignar un valor vec4 a gl_FragColor.
         
     */    
-
+    color.a = 0.95;
 	gl_FragColor = color;
 }
