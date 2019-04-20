@@ -2,6 +2,8 @@
 precision mediump float;
 #endif
 
+const float pi = 3.14159265359;
+
 uniform vec2 u_mouse;
 uniform vec2 u_resolution;
 uniform float u_time;
@@ -33,7 +35,13 @@ float rect(vec2 st, vec2 c, float ax, float ay){
     bool by = ay > dy && -dy < ay ;   
     return bx && by ? 1.0 : 0.0;
 }
-
+//rotar el vector v a radianes
+vec2 rotate(vec2 v, float a){
+    float s = sin(a);
+    float c = cos(a);
+    mat2 m = mat2(c, -s, s, c);
+    return m * v;
+}
 
 void main (void) {
 	vec2 st = gl_FragCoord.xy/u_resolution.xy;
@@ -44,7 +52,17 @@ void main (void) {
     vec2 center = vec2( aspect * 0.5, 0.5);
     float c = circle(st,center, 0.5);
     color.r = c; 
-    float s  = rect(st, center, 0.5, 0.5) ;
+    float a = u_time * pi;
+    //rotar coordenadas del espacio
+    //st = rotate(st, a); 
+    //rotar el centro del círculo
+    center = rotate(center, a);
+    //dibujamos ahora en coordenadas ya rotadas
+    //Al multiplicar la información espacial podemos expader o contraer nuestro lienzo 
+  //  st *= vec2(2.0);
+   // st = fract(st);
+    st = rotate(st, a); 
+   float s  = rect(st, center, 0.5, 0.1) ;
     color.b = 1.0 - s;
 
 	gl_FragColor = vec4(color,1.0);

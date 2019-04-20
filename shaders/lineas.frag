@@ -35,17 +35,32 @@ float rect(vec2 st, vec2 c, float ax, float ay){
 }
 
 
+float linesV(vec2 st, float n , float w){
+    vec2 nt = fract(st *  n );
+    float v = smoothstep( 0.5 - w, 0.5 , nt.x) - smoothstep(0.5, 0.5 + w, nt.x);
+    return v;
+}
+
+float linesH(vec2 st, float n , float w){
+    vec2 nt = fract(st *  n );
+    float v = smoothstep( 0.5 - w, 0.5 , nt.y) - smoothstep(0.5, 0.5 + w, nt.y);
+    return v;
+}
+
 void main (void) {
 	vec2 st = gl_FragCoord.xy/u_resolution.xy;
     float aspect = u_resolution.x/u_resolution.y;
     st.x *= aspect;
 
-    vec3 color = vec3(0.0, 1.0, 0.0);
+    vec4 color = vec4(0.0, 1.0, 0.0, 1.0);
     vec2 center = vec2( aspect * 0.5, 0.5);
     float c = circle(st,center, 0.5);
     color.r = c; 
     float s  = rect(st, center, 0.5, 0.5) ;
     color.b = 1.0 - s;
+    //color -= linesV(st, 20.0 , 0.5 * sin(u_time) * sin(u_time)) ;
+    color.rgba = vec4(linesV(st, 20.0 , 0.08)) ;
+    color.rgba += vec4(linesH(st, 20.0 , 0.08)) ;
 
-	gl_FragColor = vec4(color,1.0);
+	gl_FragColor = vec4(color);
 }
