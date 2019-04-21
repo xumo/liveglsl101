@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Iniciación a los Shaders
 ========================
 Diciembre 2018 
@@ -20,10 +19,3 @@ Antecedentes
 
 
 
-=======
-Live GLSL 101
-==============
-Mayo de 2019
-
-Respositorio para el taller de intoduccion a shaders en hangar.
->>>>>>> 744141209937d0885fbf4c8533d676df37a157d9
