@@ -2,7 +2,6 @@ precision mediump float;
 
 uniform vec2 resolution;
 
-
 void main(){
   vec4 color = vec4(0.5,0.5,0.5, 1.0);
   vec2 pos =  2.0 * gl_FragCoord.xy / resolution - 1.0;

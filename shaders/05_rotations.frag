@@ -44,15 +44,15 @@ vec2 rotate(vec2 v, float a){
 }
 
 void main (void) {
-	vec2 st = gl_FragCoord.xy/u_resolution.xy;
-    float aspect = u_resolution.x/u_resolution.y;
+	vec2 st = gl_FragCoord.xy/resolution.xy;
+    float aspect = resolution.x/resolution.y;
     st.x *= aspect;
 
-    vec3 color = vec3(0.0, 1.0, 0.0);
+    vec3 color = vec3(0.0, 0.2, 0.0);
     vec2 center = vec2( aspect * 0.5, 0.5);
     float c = circle(st,center, 0.5);
     color.r = c;
-    float a = u_time * pi;
+    float a = time * pi;
     //rotar coordenadas del espacio
     //st = rotate(st, a);
     //rotar el centro del círculo
@@ -62,7 +62,7 @@ void main (void) {
   //  st *= vec2(2.0);
    // st = fract(st);
     st = rotate(st, a);
-   float s  = rect(st, center, 0.5, 0.1) ;
+    float s  = rect(st, center, 0.5, 0.1) ;
     color.b = 1.0 - s;
 
 	gl_FragColor = vec4(color,1.0);

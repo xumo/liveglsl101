@@ -1,13 +1,12 @@
 #version número_de_version
 precision mediump float;
-in tipo in_nombre_de_variable_1;
-in tipo in_nombre_de_variable_2;
 
+in tipo in_nombre_de_variable_1;
 out tipo out_nombre_variable;
 
 uniform tipo uniform_nombre;
 
-/*
+/*glsl
 Escalares
 --------
 bool: tipo condiciional, true o false.
