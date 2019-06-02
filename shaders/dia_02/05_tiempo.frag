@@ -33,13 +33,10 @@ void main(){
   vec2 uv = 2.0 * gl_FragCoord.xy/ resolution - 1.0;
   uv.x *= resolution.x / resolution.y;
 
-  float a = atan22( uv.x , uv.y);
+  float a = atan( uv.x/ uv.y);
   float r =  sin(a + 0.6 * time);
-  //r = sin(a + time) + cos(a + time);
-  //r = a
-  ///vec2 st = gl_FragCoord.xy/ resolution;
 
-  float uvx = 2.0 * a /pi  ;
+  float uvx = ( pi /2.0 + 0.5*a*a ) / pi;
   float freq = texture2D(spectrum, vec2( uvx, 0.5)).r;
 
   float c = circuloSmooth(uv, vec2(0.0), 0.5, 0.01+0.5 * freq);
