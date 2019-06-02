@@ -50,7 +50,7 @@ vec4 simpleS = texture2D(image2, uvS);
 
 float dx = length ( simpleE - simpleO) / ( 2.0 * delta ) ;
 float dy = length ( simpleN - simpleS) / ( 2.0 * delta ) ;
-float w = 0.3;
+float w = 0.25;
 color = (1.0 - 4.0 * w) * simple + w * simpleO + w * simpleE + w * simpleN + w * simpleS ;
 
 //color *=max(dx , dy);
