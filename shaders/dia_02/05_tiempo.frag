@@ -33,9 +33,12 @@ void main(){
 
   float uvx = ( pi /2.0 + 0.5*a*a ) / pi;
   float freq = texture2D(spectrum, vec2( uvx, 0.5)).r;
+  float t = 15.0 * time;
+  float sr = 1.0 +  0.5 * (sin( 20.0 *  a +  t) + cos(35.0*a +t));
 
-  float c = circuloSmooth(uv, vec2(0.0), 0.5, 0.01+0.5 * freq);
-  color += c;
+  float c = circuloSmooth(uv, vec2(0.0), 0.5, 0.1 *sr + 0.5 * freq);
+
+  color.r += c;
 
   gl_FragColor = color;
  }
