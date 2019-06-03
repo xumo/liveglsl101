@@ -1,7 +1,6 @@
 /*
 {
-"audio":true,
-"camera":true
+"audio":true
 }
 */
 precision mediump float;
@@ -9,7 +8,6 @@ precision mediump float;
 uniform vec2 resolution;
 uniform float time;
 uniform sampler2D spectrum;
-uniform sampler2D camera;
 
 float pi = 3.1415926535897932384626433832795;
 
@@ -35,7 +33,6 @@ void main(){
 
   float uvx = ( pi /2.0 + 0.5*a*a ) / pi;
   float freq = texture2D(spectrum, vec2( uvx, 0.5)).r;
-  vec4 cam = texture2D(camera, gl_FragCoord.xy/ resolution );
 
   float c = circuloSmooth(uv, vec2(0.0), 0.5, 0.01+0.5 * freq);
   color += c;
