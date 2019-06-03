@@ -36,9 +36,11 @@ void main(){
   float t = 15.0 * time;
   float sr = 1.0 +  0.5 * (sin( 20.0 *  a +  t) + cos(35.0*a +t));
 
-  float c = circuloSmooth(uv, vec2(0.0), 0.5, 0.1 *sr + 0.5 * freq);
+  float red = circuloSmooth(uv, vec2(0.0), 0.5, 0.1 *sr + 0.5 * freq);
+  float green = circuloSmooth(uv, vec2(0.0), 0.5, 0.01 *sr + 0.5 * freq);
 
-  color.r += c;
+  color.r += red;
+  color.g += green;
 
   gl_FragColor = color;
  }
