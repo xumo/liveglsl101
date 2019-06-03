@@ -9,6 +9,8 @@ precision mediump float;
 uniform vec2 resolution;
 uniform float time;
 uniform sampler2D spectrum;
+uniform sampler2D samples;
+uniform float volume;
 uniform sampler2D camera;
 
 float pi = 3.1415926535897932384626433832795;
@@ -51,10 +53,24 @@ void main(){
   float uvx = ( pi /2.0 + 0.5*a*a ) / pi;
   float freq = texture2D(spectrum, vec2( uvx, 0.5)).r;
   vec4 cam = texture2D(camera, gl_FragCoord.xy/ resolution );
-  float ec = edgevideo(camera,gl_FragCoord.xy, resolution, 1.0 +freq );
-  float c = circuloSmooth(uv, vec2(0.0), 0.5, 0.01+0.5 * freq);
+  float ampAng = texture2D(samples,  vec2( uvx, 0.5)).r;
+  float cf = circuloSmooth(uv, vec2(0.0), 0.2+0.5 * volume, 0.0005+ 0.1 * ampAng);
+  uv = gl_FragCoord.xy / resolution.xy;
+  float f = texture2D(spectrum, vec2(uv.x, .5)).r;
+  float wave = texture2D(samples, vec2(uv.x, .5)).r;
+  float ec = edgevideo(camera,gl_FragCoord.xy, resolution, 1.0 + 2.0 * f );
+
+
+
+
+
   //color = cam;
-  color += ec + c;
+
+  color += ec + cf ;
+  //color.r *=f;
+  //color.r += 1. - step(0.01, abs(wave - uv.y));
+  //color.g += 1. - step(0.01, abs(f - uv.y));
+
 
   gl_FragColor = color;
  }

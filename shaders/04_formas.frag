@@ -6,9 +6,6 @@ uniform vec2 mouse;
 uniform vec2 resolution;
 uniform float time;
 
-
-
-
 //pintar un círculo centrado en c con radio r
 float circle(vec2 st, vec2 c, float r){
     //tomar la distancia a c
