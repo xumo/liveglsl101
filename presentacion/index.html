@@ -21,12 +21,97 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+		<style>
+					.row {
+			display: flex;
+			flex-wrap: wrap;
+			padding: 0 4px;
+			}
+
+			/* Create two equal columns that sits next to each other */
+			.column {
+			flex: 50%;
+			padding: 0 4px;
+			}
+
+			.column img {
+			margin-top: 8px;
+			vertical-align: middle;
+			}
+
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h2>Introducción a shaders</h2>
+					<p>
+						<small> Rodrigo Torres @ Hangar 2019</small>
+					</p>
+				</section>
+				<section>
+					<h2>Tarjeta gráficas</h2>
+					<p><small>O de cómo llegamos a dibujar con el GPU (Graphics Processing Unit)</small></p>
+				</section>
+				<section>
+					<p>3dfx Interactive Voodoo 1, 1996</p>
+					<img src="img/3dfx-Voodoo1.jpg"/>
+					<ul>
+						<li><small>Primera con precios accesibles a gamers</small></li>
+						<li><small>API, controladores y lenguaje propios. Glide API</small></li>
+					</ul>
+				</section>
+				<section>
+					<p>Nvidia 256, 1999</p>
+					<img src="img/Nvidia-256-DDR.jpg"/>
+					<ul>
+						<li><small>Al igual que Matrox y ATI tenía menor precio.</small></li>
+						<li><small>Compatible con DirectX y OpenGL.</small></li>
+					</ul>
+				</section>
+				<section>
+					<p>Tarjetas modernas</p>
+					<img src="img/Radeon-RX-480.jpg"/>
+					<ul>
+						<li><small>Cómputo genérico con OpenCL y Cuda.</small></li>
+						<li><small>DirectX, OpenGL, Vulkan, etc.</small></li>
+					</ul>
+				</section>
+				<section>
+					<p>Gráficos integrados</p>
+					<img src="img/Integrated-GPU-market-776x443.jpg"/>
+					<ul>
+						<li><small>Ubicuidad: móviles, Raspberry Pi.</small></li>
+						<li><small>OpenGL ES. Versión utilizada por WebGL en navegadores.</small></li>
+					</ul>
+				</section>
+				<section>
+					<p>GPU vs GPU</p>
+					<img src="img/Typical-CPUs-architecture-vs-a-typical-GPUs-architecture-source.png"/>
+					<ul>
+						<li><small>GPU tiene más nodos de preocesamiento más lentos</small></li>
+						<li><small>Cómputo en paralelo. Misma instrucción por pixel.</small></li>
+					</ul>
+				</section>
+
+				<section>
+					<p>Pipeline OpenGL, estapas de dibujo.</p>
+					<img src="img/new-pipeline.png"/>
+					<ul>
+						<li><small>Convertir de un espacion 3D a la pantalla</small></li>
+						<li><small>Calcular posiciónde Cámara, objectos y luces.</small></li>
+					</ul>
+				</section>
+				<section>
+					<p>Pipeline OpenGL, shaders para cada etapa.</p>
+					<img src="img/pipeline.png"/>
+					<ul>
+						<li><small>Etapa Vertex Shader. Se calculan las posiciones finales de los vértices.</small></li>
+						<li><small>Etapa Fragment Shader. Se calcula el color final de cada pixel en pantalla, o buffer.</small></li>
+					</ul>
+				</section>
+
 			</div>
 		</div>
 
@@ -45,5 +130,6 @@
 				]
 			});
 		</script>
+		<script src="http://localhost:35729/livereload.js"></script>
 	</body>
 </html>

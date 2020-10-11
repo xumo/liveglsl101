@@ -1,6 +1,6 @@
 Iniciación a los Shaders
 ========================
-Diciembre 2018 
+Diciembre 2018
 Rodrigo Torres   
 studio(arroba)rodrigotorres.net
 
@@ -24,3 +24,9 @@ Este documento describiremos el contenido que se expondrá en un taller de 3 dí
 
 
 
+¿Que son los shaders?
+=====================
+- Notas breves sobre la evolución de las tarjetas gráficas.
+- Funcionamiento de las tarjetas gráficas.
+- Lenguajes para programar las tarjetas gráficas.
+- Tipos de shaders.
