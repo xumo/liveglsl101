@@ -28,6 +28,6 @@ void main()
 {
   //Procesar los datos de input
 
-  // Exribir en la salida losdatos tipo out
+  // ExHibir en la salida los datos tipo out
   out_variable_name = resultado_del_proceso;
 }
