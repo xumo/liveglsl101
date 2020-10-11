@@ -19,7 +19,6 @@ Este documento describiremos el contenido que se expondrá en un taller de 3 dí
 
 
 
-- Notas breves sobre la evolución de las tarjetas gráficas.
 
 
 
